@@ -312,6 +312,9 @@ int main(int argc, char **argv)
 	//CommandLine.low_battery = 2;	// NDS can report battery status
 	CommandLine.lcdfilter = 0;	// Disable LCD filtering
 	CommandLine.lcdmode = LCDMODE_3SHADES;
+	if (argc >= 1) {
+		strcpy(CommandLine.min_file, argv[1]); // Start ROM passed via argv
+	}
 	CommandLineConfFile("pokemini.cfg", "pokemini_nds.cfg", CustomConf);
 	JoystickSetup("NDS", 0, 30000, NDS_KeysNames, 12, NDS_KeysMapping);
 	keysSetRepeat(30, 8);
